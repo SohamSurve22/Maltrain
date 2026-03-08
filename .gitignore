@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+
+# Model checkpoints
+models/*.h5
+models/*.pt
+models/*.pth
+
+# Dataset (do not track raw malware data)
+data/raw/
+data/*.zip
+data/*.bin
+data/*.jpg
+data/*.png
+
+# Results cache
+results/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
