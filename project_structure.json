@@ -1,9 +1,200 @@
 {
+
     "Maltrain": {
+        ".git": {
+            "COMMIT_EDITMSG": "file",
+            "FETCH_HEAD": "file",
+            "HEAD": "file",
+            "ORIG_HEAD": "file",
+            "config": "file",
+            "cursor": {
+                "crepe": {
+                    "f5763978786f7227bf90b398c05251fd626536e6": {
+                        "index.bin": "file",
+                        "metadata.json": "file",
+                        "postings.bin": "file"
+                    }
+                }
+            },
+            "description": "file",
+            "filter-repo": {
+                "already_ran": "file",
+                "changed-refs": "file",
+                "commit-map": "file",
+                "first-changed-commits": "file",
+                "ref-map": "file",
+                "suboptimal-issues": "file"
+            },
+            "hooks": {
+                "applypatch-msg.sample": "file",
+                "commit-msg.sample": "file",
+                "fsmonitor-watchman.sample": "file",
+                "post-checkout": "file",
+                "post-commit": "file",
+                "post-merge": "file",
+                "post-update.sample": "file",
+                "pre-applypatch.sample": "file",
+                "pre-commit.sample": "file",
+                "pre-merge-commit.sample": "file",
+                "pre-push": "file",
+                "pre-push.sample": "file",
+                "pre-rebase.sample": "file",
+                "pre-receive.sample": "file",
+                "prepare-commit-msg.sample": "file",
+                "push-to-checkout.sample": "file",
+                "sendemail-validate.sample": "file",
+                "update.sample": "file"
+            },
+            "index": "file",
+            "info": {
+                "exclude": "file",
+                "refs": "file"
+            },
+            "lfs": {
+                "cache": {
+                    "locks": {
+                        "refs": {
+                            "heads": {
+                                "master": {
+                                    "verifiable": "file"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tmp": {}
+            },
+            "logs": {
+                "HEAD": "file",
+                "refs": {
+                    "heads": {
+                        "master": "file"
+                    },
+                    "remotes": {
+                        "origin": {
+                            "master": "file"
+                        }
+                    }
+                }
+            },
+            "objects": {
+                "03": {
+                    "3c2e164befe150f16f4bd01bde2448ad5e718a": "file"
+                },
+                "0a": {
+                    "327c8e0e0b54b8635677ac3556fcb663b2c8cf": "file"
+                },
+                "1b": {
+                    "281ffb30d0d400fa48e4b33baefac528e2403d": "file"
+                },
+                "23": {
+                    "d00dd6850ba1934afdccf750f30138de88b5b3": "file"
+                },
+                "3a": {
+                    "72cd1841b7edecdef1a67ca953b9711a87495d": "file"
+                },
+                "3f": {
+                    "967326144d1123b8c08a65a0fd90292b6c06f7": "file"
+                },
+                "5a": {
+                    "ef7268e5897d0540478f4ef6ede311440b9d82": "file"
+                },
+                "5e": {
+                    "1b46ca391a163b7dffde1213e843fecc4b40df": "file"
+                },
+                "60": {
+                    "72dcc32487a4f87490e90a8beced69d7fdb00d": "file"
+                },
+                "66": {
+                    "9dcc271dd6b9cc6b9d781caa7f402cb63da6e3": "file"
+                },
+                "69": {
+                    "d5a3f71d0d751bdc66f1989dbf337d973eaf88": "file"
+                },
+                "6e": {
+                    "6dd3d705a0d3a98cbc84c12316a8904fc9929f": "file"
+                },
+                "7a": {
+                    "f693350964b9709a5f6a241a0fddf9b5257b52": "file"
+                },
+                "86": {
+                    "dc88acdacf031fd2662cf3ac4567f4305e7f60": "file"
+                },
+                "99": {
+                    "b5916d066c1f73c0ad38019e1e7726c8798347": "file"
+                },
+                "a0": {
+                    "32b576960a4fbcdf7c86051eb00007a8280084": "file"
+                },
+                "a7": {
+                    "0ef38b0417ccb8e0be1d20b05ad6c037dfc045": "file",
+                    "deff1c5d56c7f51210898d58a8dd75b48e97bd": "file"
+                },
+                "af": {
+                    "37bb2c6f2c5851bc602f5224c3df52a1ce693b": "file"
+                },
+                "b7": {
+                    "982cc69f000b8edc1acf8642413093605c5f63": "file"
+                },
+                "bb": {
+                    "ca579b9dd3ef0d1f4455f81d2e94ac4ffbc0a4": "file"
+                },
+                "bf": {
+                    "52679b4a1a5abe54e75386450e0c0805600b75": "file"
+                },
+                "ce": {
+                    "f21776b347da36b20ad1890e5935d7f96e3d35": "file"
+                },
+                "d6": {
+                    "d819cf0eb28ce876d175fb874ed3df7d4f80c1": "file"
+                },
+                "de": {
+                    "4a1a6da030b70abac68b76df1bd3ee4897f343": "file"
+                },
+                "e8": {
+                    "78cdb7fee10ebf11add9fde7bae50dedfba5a4": "file"
+                },
+                "e9": {
+                    "4aab9ca89dd3dac99d68c3a2aad78966296250": "file"
+                },
+                "f5": {
+                    "763978786f7227bf90b398c05251fd626536e6": "file"
+                },
+                "f6": {
+                    "e51c40647ba7ce654978320e216951a02de3a8": "file"
+                },
+                "f7": {
+                    "61a6788c34aa322874b327a6642460e57bcc3a": "file"
+                },
+                "info": {
+                    "commit-graph": "file",
+                    "packs": "file"
+                },
+                "pack": {
+                    "pack-b055d028deabd0489e9dfb9d89b75bf4fb4cdb70.idx": "file",
+                    "pack-b055d028deabd0489e9dfb9d89b75bf4fb4cdb70.pack": "file",
+                    "pack-b055d028deabd0489e9dfb9d89b75bf4fb4cdb70.rev": "file"
+                }
+            },
+            "packed-refs": "file",
+            "refs": {
+                "heads": {
+                    "master": "file"
+                },
+                "remotes": {
+                    "origin": {
+                        "master": "file"
+                    }
+                },
+                "tags": {}
+            }
+        },
+        ".gitignore": "file",
         "AI_Malware_Project_Task_Tracker.xlsx": "file",
         "Degradation_Curve.png": "file",
         "OOD_Accuracy_Comparison.png": "file",
         "data": {
+            ".gitkeep": "file",
             "processed": {},
             "raw": {
                 "Malimg": {
@@ -9412,26 +9603,39 @@
         "logs": {},
         "models": {
             "cnn_best_model.h5": "file",
-            "cnn_final_model.h5": "file",
             "maltrain_checkpoint.h5": "file"
         },
         "notebook": {},
+        "project_structure.json": "file",
         "results": {
-            "best_model_classification_report.csv": "file",
-            "best_model_classification_report.txt": "file",
-            "best_model_cnn_embeddings.npy": "file",
-            "best_model_confusion_matrix.txt": "file",
-            "best_model_embedding_labels.npy": "file",
-            "confusion_matrix.png": "file",
-            "confusion_matrix_normalized.png": "file",
-            "family_distribution.png": "file",
-            "final_model_classification_report.csv": "file",
-            "final_model_classification_report.txt": "file",
-            "final_model_cnn_embeddings.npy": "file",
-            "final_model_confusion_matrix.txt": "file",
-            "final_model_embedding_labels.npy": "file",
-            "tsne_malware_clusters.png": "file",
-            "tsne_malware_publication.png": "file"
+            "archive_phase0": {
+                "CNN": {
+                    "Cosine_Focus1.png": "file",
+                    "Cosine_Focus2.png": "file",
+                    "Cosine_Focus3.png": "file",
+                    "Cosine_malware_Similarity.png": "file",
+                    "Screenshot 2026-03-08 145251.png": "file",
+                    "TSNE_Focus1.png": "file",
+                    "TSNE_Focus2.png": "file",
+                    "TSNE_General.png": "file",
+                    "best_model_classification_report.csv": "file",
+                    "best_model_classification_report.txt": "file",
+                    "best_model_cnn_embeddings.npy": "file",
+                    "best_model_confusion_matrix.txt": "file",
+                    "best_model_embedding_labels.npy": "file",
+                    "confusion_matrix.png": "file",
+                    "confusion_matrix_normalized.png": "file",
+                    "family_distribution.png": "file",
+                    "final_model_classification_report.csv": "file",
+                    "final_model_classification_report.txt": "file",
+                    "final_model_cnn_embeddings.npy": "file",
+                    "final_model_confusion_matrix.txt": "file",
+                    "final_model_embedding_labels.npy": "file",
+                    "tsne_malware_clusters.png": "file",
+                    "tsne_malware_publication.png": "file"
+                }
+            },
+            "baseline_README.md": "file"
         },
         "scripts": {
             "__pycache__": {
@@ -9439,8 +9643,10 @@
                 "plot_confusion_matrix.cpython-313.pyc": "file"
             },
             "analyze_confusions.py": "file",
+            "baseline_benchmark.py": "file",
             "create_test_split.py": "file",
             "evaluation_model.py": "file",
+            "extract_embedding.py": "file",
             "plot_confusion_matrix.py": "file",
             "similarity_analysis_network.py": "file",
             "tsne_visualization.py": "file"
@@ -9449,9 +9655,11 @@
             "NON_Maltrain_scripts": {
                 "show_project_structure.py": "file"
             },
+            "cnn_training.py": "file",
             "eda.py": "file",
             "prepare_data.py": "file",
             "train.py": "file"
         }
     }
+
 }
