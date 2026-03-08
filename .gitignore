@@ -17,8 +17,7 @@ data/*.bin
 data/*.jpg
 data/*.png
 
-# Results cache
-results/
+
 
 # Jupyter
 .ipynb_checkpoints/
