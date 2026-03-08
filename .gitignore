@@ -26,3 +26,7 @@ results/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Dataset
+data/splits/
+data/*.npy
