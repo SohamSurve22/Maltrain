@@ -1,168 +1,118 @@
-# Maltrain
+# Maltrain: Malware Clustering and Visualization Framework
 
-## Overview
+## 1. Project Overview
+**Maltrain** is a deep learning framework designed for **malware family clustering, analysis, and visualization**. It leverages **Convolutional Neural Networks (CNNs)** to extract high-dimensional embeddings from malware images (Malimg dataset) and employs dimensionality reduction, similarity graphs, and interactive visualization to analyze and explore malware family relationships.
 
-Maltrain is a deep learning–based malware family clustering and visualization framework designed for research exploration in malware classification. The project focuses on extracting learned representations from malware images and analyzing family-level similarity structures using CNN embeddings, PCA dimensionality reduction, and t-SNE visualization.
-
-The primary dataset used in this project is the **Malimg malware dataset** from Kaggle.
-
-Dataset source:
-https://www.kaggle.com/datasets/manmandes/malimg
+**Key goals:**
+- Accurately classify malware families using CNN embeddings.  
+- Provide interpretable 2D visualizations (t-SNE, UMAP) for research analysis.  
+- Evaluate classical ML methods on CNN embeddings for benchmarking.  
+- Enable interactive malware retrieval based on embedding similarity.  
 
 ---
 
-## Project Structure
-
-```
+## 2. Repository Structure
 Maltrain/
-│
-├── data/                # Dataset storage (not included in repo)
-├── scripts/             # Training, visualization, and analysis scripts
-├── src/                 # Core model and feature extraction pipeline
-├── results/             # Generated plots, embeddings, and reports
-├── models/             # Saved trained models
-└── README.md
-```
+├─ data/ # Raw and processed dataset splits
+├─ scripts/ # Primary execution scripts (training, extraction, visualization)
+├─ src/ # Core logic for EDA, model definitions, utilities
+├─ models/ # Trained CNN models and classical ML classifiers
+├─ results/ # Plots, embeddings, similarity matrices, CSV reports
+├─ figures/ # Interactive HTML visualizations
+├─ logs/ # (Optional) training and execution logs
+└─ README.md # Project documentation
+
 
 ---
 
-## Dataset Setup
+## 3. Component Breakdown
 
-### Download Dataset
-
-1. Visit:
-   https://www.kaggle.com/datasets/manmandes/malimg
-
-2. Download the dataset archive.
-
-3. Extract the dataset inside the `data/` directory:
-
-```
-data/
-└── malimg_dataset/
-    ├── Family1/
-    ├── Family2/
-    └── ...
-```
-
-The final path should resemble:
-
-```
-Maltrain/data/malimg_dataset/
-```
+| Component | Purpose | Input Files | Output Files | Script | Status |
+|-----------|--------|------------|-------------|--------|--------|
+| Data Preparation | Load, resize, normalize malware images, create train/test splits | data/raw/Malimg | data/splits/X_train.npy, y_train.npy, ... | scripts/prepare_data.py | ✅ Complete |
+| CNN Training | Train 3-layer CNN with 256-D embedding layer | data/splits/*.npy | models/cnn_best_model.h5, cnn_final_model.keras | scripts/cnn_training.py | ✅ Complete |
+| Embedding Extraction | Extract high-level CNN feature vectors | models/cnn_best_model.h5, data/splits/*.npy | results/phase2/*_embeddings.npy, *_labels.npy | scripts/extract_embedding.py | ✅ Complete |
+| Classical ML Comparison | Benchmark embeddings with KNN, SVM, Random Forest | results/phase2/*.npy | results/baseline_comparison.csv, models/*_classifier.pkl | scripts/train_classical_ml.py, scripts/baseline_benchmark.py | ✅ Complete |
+| Similarity Graph | Construct family-level network using centroid cosine similarity | results/phase2/*.npy | results/malware_similarity_network.png | scripts/similarity_analysis_network.py | ✅ Complete |
+| Embedding Visualization | t-SNE/UMAP 2D projections | results/phase2/*.npy | results/tsne_malware_publication.png, results/umap_malware_clusters.png | scripts/tsne_visualization.py, scripts/umap_visual.py | ✅ Complete |
+| Interactive Visualization | Plotly UMAP interactive scatter plot | results/phase2/all_embeddings.npy | figures/interactive_malware_embeddings.html | scripts/interactive_visualization.py | ✅ Complete |
+| Heatmaps | Pairwise cosine similarity of malware family centroids | results/phase2/all_embeddings.npy | results/phase2/family_similarity_heatmap_realnames.png | scripts/family_sim_heatmap.py | ✅ Complete |
+| Malware Retrieval | Top-K similarity search for nearest neighbor malware lookup | results/phase2/all_embeddings.npy | results/phase2/malware_retrieval_topk.csv | scripts/topk_retrieval.py | ✅ Complete |
 
 ---
 
-## Installation
+## 4. Dependencies & Dataset
 
-Create a virtual environment:
+**Dataset:**
+- **Source:** Malimg Malware Dataset (Kaggle)  
+- **Format:** Grayscale malware images  
+- **Classes:** 25 distinct malware families (e.g., Adialer.C, Allaple.A, Yuner.A)
 
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
+**Python Libraries:**
+- **Deep Learning:** `tensorflow`, `keras`  
+- **Data Science:** `numpy`, `pandas`, `scikit-learn`  
+- **Visualization:** `matplotlib`, `seaborn`, `plotly`, `networkx`  
+- **Dimensionality Reduction:** `umap-learn`, PCA, t-SNE  
+- **Image Processing:** `opencv-python`  
 
 ---
 
-## Training Pipeline
+## 5. Research Experiments & Results
 
-Run preprocessing and model training:
+### Classification Performance
 
-```bash
-python scripts/train_cnn.py
-```
+| Model | Accuracy |
+|-------|---------|
+| CNN | ~98.0% |
+| SVM (RBF) | ~98.4% |
+| KNN | ~98.3% |
+| Random Forest | ~98.2% |
 
-This script will:
+*Insight:* CNN embeddings + SVM often slightly outperform the end-to-end CNN classifier due to better margin optimization.
 
-* Load malware image samples
-* Perform normalization and augmentation.
-* Train CNN feature extractor.
-* Save model checkpoints.
+### Structural Insights
 
----
+- **Clustering:** t-SNE and UMAP plots show clear separation for most malware families.  
+- **Similarity Graph:** "Lolyda" variants cluster together, revealing shared code/obfuscation.  
+- **Retrieval Accuracy:** Mean Top-5 Retrieval Accuracy is consistently high, proving nearest-neighbor effectiveness.  
 
-## Visualization Pipeline
+### Dimensionality Reduction Comparison
 
-### PCA Projection
-
-```bash
-python scripts/pca_visualization.py
-```
-
-Generates:
-
-* Family-wise separability plots.
+- **PCA:** Captures variance but fails on overlapping families in 2D.  
+- **t-SNE:** Excellent for local cluster preservation; used for static, publication-quality plots.  
+- **UMAP:** Preserves global structure, faster, used for interactive exploration.
 
 ---
 
-### t-SNE Embedding Visualization
+## 6. Usage Instructions
 
-```bash
+Train CNN:
+
+python scripts/cnn_training.py
+
+Extract Embeddings:
+
+python scripts/extract_embedding.py
+
+Classical ML Benchmarking:
+
+python scripts/train_classical_ml.py
+
+Similarity Graph & Heatmaps:
+
+python scripts/similarity_analysis_network.py
+python scripts/family_sim_heatmap.py
+
+Embedding Visualization:
+
 python scripts/tsne_visualization.py
-```
+python scripts/umap_visual.py
+python scripts/interactive_visualization.py
 
-Produces publication-style embedding plots for malware family clustering.
+Malware Retrieval:
 
----
+python scripts/topk_retrieval.py
 
-## Output Results
-
-Results are stored inside:
-
-```
-results/
-├── embeddings/
-├── plots/
-└── metrics/
-```
-
-Typical outputs include:
-
-* Confusion matrices
-* Family similarity graphs
-* Dimensionality reduction projections
-
----
-
-## Research Purpose
-
-This project is intended for:
-
-* Malware family clustering research
-* Representation learning analysis
-* Visualization of high-dimensional malware embeddings
-* Experimental cybersecurity ML exploration
-
-It is not currently optimized for production deployment.
-
----
-
-## Future Improvements
-
-* Add stratified cross-validation evaluation.
-* Incorporate transformer-based malware representation models.
-* Extend analysis to adversarial robustness testing.
-* Add SHAP-based explainability visualization.
-* Benchmark against classical ML baselines.
-
----
-
-## Citation
-
-If you use this project for academic or research purposes, please cite the repository.
-
-Dataset citation:
-Malimg Malware Dataset — https://www.kaggle.com/datasets/manmandes/malimg
-
----
-
-## Author
-
-Maintained by SohamSurve22
+1. **Data Preparation:**  
+   ```bash
+   python scripts/prepare_data.py
